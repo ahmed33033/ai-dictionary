@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Field } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   return (
@@ -28,12 +31,10 @@ export default function Home() {
             </ol>
           </nav>
         </div>
-        <search>
-          <form action="">
-            <label htmlFor="search_bar">Search</label>
-            <input id="search_bar" type="search" placeholder="Search the buzzwords!" />
-          </form>
-        </search>
+        <Field orientation="horizontal" className="my-5 *:h-20 *:text-lg! ">
+          <Input type="search" placeholder="Search the buzzwords..." />
+          <Button className="w-30"> Search</Button>
+        </Field>
       </header>
 
       <main>
@@ -47,6 +48,7 @@ export default function Home() {
             quisquam accusantium laborum earum numquam, repellat expedita necessitatibus.
           </p>
         </article>
+        <Button>A Button</Button>
       </main>
     </>
   );
