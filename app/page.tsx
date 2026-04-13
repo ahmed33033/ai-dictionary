@@ -4,16 +4,30 @@ export default function Home() {
   return (
     <>
       <header>
-        <Link href={"/"}>The Simple AI Dictionary</Link>
-        <p>
-          <em>Defining the AI buzzwords, simply.</em>
-        </p>
-        <nav>
-          <ol>
-            <li>About</li>
-            <li>Contribute</li>
-          </ol>
-        </nav>
+        <div className="md:flex text-center md:text-left items-center bg-indigo-200 py-5 px-10 rounded-lg">
+          <div className="inline-block max-md:mbe-3 md:grow-1">
+            <div className="inline-block text-center">
+              <Link className="text-xl font-sans text-indigo-800 inline-block w-m" href={"/"}>
+                The Simple <br />
+                <span className="text-4xl font-bold">AI Dictionary</span>
+              </Link>
+              <br />
+              <div className="inline-block">
+                <em className="font-serif">Defining the AI buzzwords, simply.</em>
+              </div>
+            </div>
+          </div>
+          <nav className="inline">
+            <ol className="*:inline *:not-last:mr-10 text-lg font-sans underline *:hover:bg-yellow-200 *:p-2 *:rounded-md">
+              <li>
+                <Link href={"/about"}>About</Link>
+              </li>
+              <li>
+                <Link href={"/contribute"}>Contribute</Link>
+              </li>
+            </ol>
+          </nav>
+        </div>
         <search>
           <form action="">
             <label htmlFor="search_bar">Search</label>
