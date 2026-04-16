@@ -15,11 +15,10 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-import * as defJSONS from "@/app/terms.json";
+import { terms } from "@/app/terms";
 
 export default function Home() {
-  const [searchVal, setSearchVal] = useState(false);
-  const defJSON = defJSONS.definitions;
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <header>
@@ -47,24 +46,22 @@ export default function Home() {
             </ol>
           </nav>
         </div>
-        <search className="my-5">
-          <label
-            className="block text-center text-4xl font-black bg-linear-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent mb-2"
-            htmlFor="search-dict"
-          >
-            Name the Buzzword...
-          </label>
-          <div className="flex justify-center">
-            <input
-              className="border-main-color border-3 grow-1 placeholder:italic indent-4 rounded-s-lg"
-              id="search-dict"
-              placeholder="Search..."
-              type="search"
-            />
-            <button className="text-white bg-main-color p-3 px-7 rounded-e-lg">Search</button>
-          </div>
-        </search>
       </header>
+      <Command className="rounded-lg border my-4">
+        <CommandInput
+          placeholder="Type a command or search..."
+          value={searchTerm}
+          onValueChange={(search) => setSearchTerm(search)}
+        />
+        {searchTerm.length > 0 && (
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            {terms.map((term) => (
+              <CommandItem key={term}>{term}</CommandItem>
+            ))}
+          </CommandList>
+        )}
+      </Command>
       <main>
         <article>
           <h1>Word of the Day</h1>
