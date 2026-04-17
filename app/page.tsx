@@ -47,22 +47,29 @@ export default function Home() {
           </nav>
         </div>
       </header>
-      <Command className="rounded-lg border my-4">
+      <p className="text-center text-4xl font-bold bg-linear-to-r from-blue-400 to-pink-600 bg-clip-text text-transparent mbs-4">
+        Search the Buzzwords!
+      </p>
+
+      <Command className="mbe-4" label="Dictionary Search Bar">
         <CommandInput
           placeholder="Type a command or search..."
           value={searchTerm}
           onValueChange={(search) => setSearchTerm(search)}
+          className="h-20"
         />
-        {searchTerm.length > 0 && (
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            {terms.map((term) => (
-              <CommandItem key={term}>{term}</CommandItem>
-            ))}
-          </CommandList>
-        )}
+        <div>
+          {searchTerm.length > 0 && (
+            <CommandList className="absolute z-1 bg-white">
+              <CommandEmpty>No results found.</CommandEmpty>
+              {terms.map((term) => (
+                <CommandItem key={term}>{term}</CommandItem>
+              ))}
+            </CommandList>
+          )}
+        </div>
       </Command>
-      <main>
+      <main className="relative">
         <article>
           <h1>Word of the Day</h1>
           <h2>Agent</h2>
