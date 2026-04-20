@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Command,
   CommandDialog,
@@ -19,13 +20,14 @@ import { terms } from "@/app/terms";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
   return (
     <>
       <header>
-        <div className="md:flex text-center md:text-left items-center bg-indigo-200 py-5 px-10 rounded-lg border-main-color border-3">
+        <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-lg border-primary border-3">
           <div className="inline-block max-md:mbe-3 md:grow-1">
             <div className="inline-block text-center">
-              <Link className="text-xl font-sans text-main-color inline-block w-m" href={"/"}>
+              <Link className="text-xl font-sans text-primary inline-block w-m" href={"/"}>
                 The Simple <br />
                 <span className="text-4xl font-bold">AI Dictionary</span>
               </Link>
@@ -36,7 +38,7 @@ export default function Home() {
             </div>
           </div>
           <nav className="inline">
-            <ol className="*:inline *:not-last:mr-10 text-main-color text-lg font-sans underline *:hover:bg-yellow-200 *:p-2 *:rounded-md">
+            <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans underline *:hover:bg-yellow-200 *:p-2 *:rounded-md">
               <li>
                 <Link href={"/about"}>About</Link>
               </li>
@@ -47,23 +49,25 @@ export default function Home() {
           </nav>
         </div>
       </header>
-      <p className="text-center text-4xl font-bold bg-linear-to-r from-blue-400 to-pink-600 bg-clip-text text-transparent mbs-4">
-        Search the Buzzwords!
-      </p>
 
-      <Command className="mbe-4" label="Dictionary Search Bar">
+      <Command className="my-4 border-2 border-primary" label="Dictionary Search Bar">
         <CommandInput
-          placeholder="Type a command or search..."
+          placeholder="Search through the AI buzz..."
           value={searchTerm}
           onValueChange={(search) => setSearchTerm(search)}
-          className="h-20"
         />
-        <div>
+        <div className="relative z-1">
           {searchTerm.length > 0 && (
-            <CommandList className="absolute z-1 bg-white">
-              <CommandEmpty>No results found.</CommandEmpty>
+            <CommandList className="absolute w-full *:*:border-2 *:*:not-last:border-be-1 mbs-1">
+              <CommandEmpty className="rounded-full  bg-white p-2 ps-4 border-primary">No results found.</CommandEmpty>
               {terms.map((term) => (
-                <CommandItem key={term}>{term}</CommandItem>
+                <CommandItem
+                  className=" text-primary bg-white border-primary"
+                  onSelect={(value) => router.push(`/term/${term}`)}
+                  key={term}
+                >
+                  {term}
+                </CommandItem>
               ))}
             </CommandList>
           )}
