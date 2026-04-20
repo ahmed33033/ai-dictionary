@@ -76,7 +76,10 @@ export default function Home() {
       </Command>
       <main className="relative">
         <article>
-          <h1>Buzzword of the Day</h1>
+          <h1 className="text-2xl font-bold text-primary">
+            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>{" "}
+            of the Day
+          </h1>
           <h2 className="capitalize">{term_of_the_day}</h2>
           <p>{terms.filter((term) => term.name === term_of_the_day)[0].general.definition}</p>
         </article>
