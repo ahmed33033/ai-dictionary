@@ -22,6 +22,8 @@ import { term_of_the_day } from "@/lib/term-of-the-day";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
+  const term_obj = terms.filter((term) => term.name === term_of_the_day)[0];
+
   return (
     <>
       <header>
@@ -39,7 +41,7 @@ export default function Home() {
             </div>
           </div>
           <nav className="inline">
-            <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans underline *:hover:bg-yellow-200 *:p-2 *:rounded-md">
+            <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans underline *:hover:bg-link-highlight *:p-2 *:rounded-md">
               <li>
                 <Link href={"/about"}>About</Link>
               </li>
@@ -74,16 +76,39 @@ export default function Home() {
           )}
         </div>
       </Command>
-      <main className="relative">
+      <main className="flex gap-16 *:basis-100">
         <article>
-          <h1 className="text-2xl font-bold text-primary">
-            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>{" "}
-            of the Day
+          <h1 className="text-2xl font-bold text-primary mb-2">
+            Today's &nbsp;
+            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>
           </h1>
-          <h2 className="capitalize">{term_of_the_day}</h2>
-          <p>{terms.filter((term) => term.name === term_of_the_day)[0].general.definition}</p>
+          <div className="border-2 border-black rounded-lg p-3">
+            <h2 className="w-max capitalize text-xl font-bold text-red text-primary ">
+              <Link className="hover:bg-link-highlight rounded-md box-content" href={`/term/${term_of_the_day}`}>
+                {term_of_the_day}
+              </Link>
+            </h2>
+            <p className="capitalize italic ">{term_obj.type}</p>
+            <p className="pt-2">{term_obj.general.definition}</p>
+          </div>
         </article>
-        <Button>A Button</Button>
+        <article>
+          <h1 className="text-2xl font-bold text-primary mb-2">
+            Discover &nbsp;
+            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
+          </h1>
+          <div className="border-2 border-black rounded-lg p-3">
+            <ul>
+              {termsPlaceholder.map((term) => (
+                <li key={term}>
+                  <Link className="hover:bg-link-highlight py-1 rounded-sm" href={`/term/${term}`}>
+                    {term}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
       </main>
     </>
   );

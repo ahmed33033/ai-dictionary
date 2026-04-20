@@ -5,6 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/typography";
 
+@theme {
+  --color-link-highlight: var(--color-yellow-400);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
