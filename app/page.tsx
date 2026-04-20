@@ -16,7 +16,8 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-import { terms } from "@/app/terms";
+import { termsPlaceholder, terms } from "@/lib/terms";
+import { term_of_the_day } from "@/lib/term-of-the-day";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -58,11 +59,11 @@ export default function Home() {
         />
         <div className="relative z-1">
           {searchTerm.length > 0 && (
-            <CommandList className="absolute w-full *:*:border-2 *:*:not-last:border-be-1 mbs-1">
+            <CommandList className="absolute w-full *:*:border-2 *:*:not-last:border-be mbs-1  drop-shadow-2xl/50 drop-shadow-primary">
               <CommandEmpty className="rounded-full  bg-white p-2 ps-4 border-primary">No results found.</CommandEmpty>
-              {terms.map((term) => (
+              {termsPlaceholder.map((term) => (
                 <CommandItem
-                  className=" text-primary bg-white border-primary"
+                  className=" text-primary border-primary bg-white"
                   onSelect={(value) => router.push(`/term/${term}`)}
                   key={term}
                 >
@@ -75,14 +76,9 @@ export default function Home() {
       </Command>
       <main className="relative">
         <article>
-          <h1>Word of the Day</h1>
-          <h2>Agent</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt consectetur suscipit exercitationem
-            aliquam aut nisi tenetur saepe facere ad asperiores eligendi eum itaque distinctio laboriosam repellat dicta
-            ex, repellendus consequuntur beatae animi soluta commodi amet qui. Maiores quo debitis officia libero, est
-            quisquam accusantium laborum earum numquam, repellat expedita necessitatibus.
-          </p>
+          <h1>Buzzword of the Day</h1>
+          <h2 className="capitalize">{term_of_the_day}</h2>
+          <p>{terms.filter((term) => term.name === term_of_the_day)[0].general.definition}</p>
         </article>
         <Button>A Button</Button>
       </main>
