@@ -6,7 +6,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-main-color: var(--color-indigo-800);
+  --color-link-highlight: var(--color-yellow-400);
 }
 
 @theme inline {
@@ -53,10 +53,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-body {
-  margin: 2rem 3rem;
-}
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -64,9 +60,9 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(30.599% 0.16061 285.518);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(0.8511 0.0616 307.66);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -132,8 +128,10 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    @apply max-w-4xl;
   }
   html {
     @apply font-sans;
+    @apply flex flex-col p-8 items-center;
   }
 }

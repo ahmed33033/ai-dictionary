@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Field } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Command,
   CommandDialog,
@@ -15,29 +16,30 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-import * as defJSONS from "@/app/terms.json";
+import { termsPlaceholder, terms } from "@/lib/terms";
+import { term_of_the_day } from "@/lib/term-of-the-day";
 
 export default function Home() {
-  const [searchVal, setSearchVal] = useState(false);
-  const defJSON = defJSONS.definitions;
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+  const term_obj = terms.filter((term) => term.name === term_of_the_day)[0];
+
   return (
     <>
       <header>
-        <div className="md:flex text-center md:text-left items-center bg-indigo-200 py-5 px-10 rounded-lg border-main-color border-3">
+        <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-lg border-primary border-3">
           <div className="inline-block max-md:mbe-3 md:grow-1">
             <div className="inline-block text-center">
-              <Link className="text-xl font-sans text-main-color inline-block w-m" href={"/"}>
+              <Link className="text-xl font-sans text-primary inline-block w-m" href={"/"}>
                 The Simple <br />
                 <span className="text-4xl font-bold">AI Dictionary</span>
               </Link>
               <br />
-              <div className="inline-block">
-                <em className="font-serif">Defining the AI buzzwords, simply.</em>
-              </div>
+              <div className="italic inline-block">Defining the AI buzzwords, simply.</div>
             </div>
           </div>
           <nav className="inline">
-            <ol className="*:inline *:not-last:mr-10 text-main-color text-lg font-sans underline *:hover:bg-yellow-200 *:p-2 *:rounded-md">
+            <ol className="*:inline *:not-last:mr-10 text-primary font-bold text-lg font-sans *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
               <li>
                 <Link href={"/about"}>About</Link>
               </li>
@@ -47,36 +49,67 @@ export default function Home() {
             </ol>
           </nav>
         </div>
-        <search className="my-5">
-          <label
-            className="block text-center text-4xl font-black bg-linear-to-r from-blue-500 to-pink-500 bg-clip-text text-transparent mb-2"
-            htmlFor="search-dict"
-          >
-            Name the Buzzword...
-          </label>
-          <div className="flex justify-center">
-            <input
-              className="border-main-color border-3 grow-1 placeholder:italic indent-4 rounded-s-lg"
-              id="search-dict"
-              placeholder="Search..."
-              type="search"
-            />
-            <button className="text-white bg-main-color p-3 px-7 rounded-e-lg">Search</button>
-          </div>
-        </search>
       </header>
-      <main>
+
+      <Command className="my-4 border-3 border-primary" label="Dictionary Search Bar">
+        <CommandInput
+          placeholder="Search through the AI buzz..."
+          value={searchTerm}
+          onValueChange={(search) => setSearchTerm(search)}
+        />
+        <div className="relative z-1">
+          {searchTerm.length > 0 && (
+            <CommandList className="absolute w-full *:*:border-2 *:*:not-last:border-be mbs-1  drop-shadow-2xl/50 drop-shadow-primary">
+              <CommandEmpty className="rounded-full  bg-white p-2 ps-4 border-primary">No results found.</CommandEmpty>
+              {termsPlaceholder.map((term) => (
+                <CommandItem
+                  className=" text-primary border-primary bg-white"
+                  onSelect={(value) => router.push(`/term/${term}`)}
+                  key={term}
+                >
+                  {term}
+                </CommandItem>
+              ))}
+            </CommandList>
+          )}
+        </div>
+      </Command>
+      <main className="flex gap-12 justify-center mbs-4">
         <article>
-          <h1>Word of the Day</h1>
-          <h2>Agent</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt consectetur suscipit exercitationem
-            aliquam aut nisi tenetur saepe facere ad asperiores eligendi eum itaque distinctio laboriosam repellat dicta
-            ex, repellendus consequuntur beatae animi soluta commodi amet qui. Maiores quo debitis officia libero, est
-            quisquam accusantium laborum earum numquam, repellat expedita necessitatibus.
-          </p>
+          <h1 className="px-8 text-2xl font-bold text-primary mb-2 text-center">
+            Today's &nbsp;
+            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>
+          </h1>
+          <div className="border-3 border-primary rounded-lg p-4 pt-3 bg-secondary">
+            <h2 className="w-max capitalize text-xl font-bold text-red text-primary ">
+              <Link className="hover:underline decoration-2  rounded-md box-content" href={`/term/${term_of_the_day}`}>
+                {term_of_the_day}
+              </Link>
+            </h2>
+            <p className="capitalize italic ">{term_obj.type}</p>
+            <p className="pt-2 max-w-[40ch]">{term_obj.general.definition}</p>
+          </div>
         </article>
-        <Button>A Button</Button>
+        <article>
+          <h1 className="px-8 text-2xl font-bold text-primary mb-2">
+            Discover &nbsp;
+            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
+          </h1>
+          <div className="border-3 border-primary rounded-lg p-3 bg-secondary">
+            <ul>
+              {termsPlaceholder.map((term) => (
+                <li className="m-1 my-2 first:my-0 last:my-0" key={term}>
+                  <Link
+                    className="capitalize text-primary font-bold hover:underline decoration-2   rounded-sm"
+                    href={`/term/${term}`}
+                  >
+                    {term}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
       </main>
     </>
   );
