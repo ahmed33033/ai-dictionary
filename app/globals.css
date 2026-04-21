@@ -7,6 +7,37 @@
 
 @theme {
   --color-link-highlight: var(--color-yellow-400);
+
+  --animate-glitch: glitch 1.5s linear 1s infinite;
+
+  @keyframes glitch {
+    0%,
+    50% {
+      content: "Agents";
+    }
+    51% {
+      content: "danpfw";
+    }
+
+    60% {
+      content: " japfdsa ";
+    }
+
+    70% {
+      content: " hadifdf ";
+    }
+    80% {
+      content: "danpfw ";
+    }
+
+    90% {
+      content: "japfdsa";
+    }
+
+    100% {
+      content: "hadifdf";
+    }
+  }
 }
 
 @theme inline {
