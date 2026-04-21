@@ -76,7 +76,7 @@ export default function Home() {
       </Command>
       <main className="flex gap-12 justify-center mbs-4">
         <article>
-          <h1 className="text-2xl font-bold text-primary mb-2">
+          <h1 className="px-8 text-2xl font-bold text-primary mb-2 text-center">
             Today's &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>
           </h1>
@@ -90,8 +90,8 @@ export default function Home() {
             <p className="pt-2 max-w-[40ch]">{term_obj.general.definition}</p>
           </div>
         </article>
-        <article className="min-w-max">
-          <h1 className="text-2xl font-bold text-primary mb-2">
+        <article>
+          <h1 className="px-8 text-2xl font-bold text-primary mb-2">
             Discover &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
           </h1>
