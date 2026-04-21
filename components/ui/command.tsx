@@ -12,7 +12,7 @@ function Command({ className, ...props }: React.ComponentProps<typeof CommandPri
   return (
     <CommandPrimitive
       data-slot="command"
-      className={cn("flex size-full flex-col rounded-4xl bg-popover text-popover-foreground", className)}
+      className={cn("flex flex-col rounded-4xl bg-popover text-popover-foreground", className)}
       {...props}
     />
   );
@@ -51,14 +51,14 @@ function CommandDialog({
 function CommandInput({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div data-slot="command-input-wrapper" className="p-1 ">
-      <InputGroup className="h-9 bg-input/50">
+      <InputGroup className="h-9 bg-white">
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn("w-full text-sm outline-hidden disabled:cursor-not-allowed disabled:opacity-50", className)}
           {...props}
         />
         <InputGroupAddon>
-          <SearchIcon className="size-4 shrink-0 opacity-50" />
+          <SearchIcon className="size-4 shrink-0 " />
         </InputGroupAddon>
       </InputGroup>
     </div>

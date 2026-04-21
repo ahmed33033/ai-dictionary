@@ -53,10 +53,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-body {
-  margin: 2rem 3rem;
-}
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -132,8 +128,10 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    @apply max-w-4xl;
   }
   html {
     @apply font-sans;
+    @apply flex flex-col p-8 items-center;
   }
 }

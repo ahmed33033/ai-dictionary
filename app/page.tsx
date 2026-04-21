@@ -35,13 +35,11 @@ export default function Home() {
                 <span className="text-4xl font-bold">AI Dictionary</span>
               </Link>
               <br />
-              <div className="inline-block">
-                <em className="font-serif">Defining the AI buzzwords, simply.</em>
-              </div>
+              <div className="italic inline-block">Defining the AI buzzwords, simply.</div>
             </div>
           </div>
           <nav className="inline">
-            <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans underline *:hover:bg-link-highlight *:p-2 *:rounded-md">
+            <ol className="*:inline *:not-last:mr-10 text-primary font-bold text-lg font-sans *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
               <li>
                 <Link href={"/about"}>About</Link>
               </li>
@@ -53,7 +51,7 @@ export default function Home() {
         </div>
       </header>
 
-      <Command className="my-4 border-2 border-primary" label="Dictionary Search Bar">
+      <Command className="my-4 border-3 border-primary" label="Dictionary Search Bar">
         <CommandInput
           placeholder="Search through the AI buzz..."
           value={searchTerm}
@@ -76,32 +74,35 @@ export default function Home() {
           )}
         </div>
       </Command>
-      <main className="flex gap-16 *:basis-100">
+      <main className="flex gap-12 justify-center mbs-4">
         <article>
           <h1 className="text-2xl font-bold text-primary mb-2">
             Today's &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>
           </h1>
-          <div className="border-2 border-black rounded-lg p-3">
+          <div className="border-3 border-primary rounded-lg p-4 pt-3 bg-secondary">
             <h2 className="w-max capitalize text-xl font-bold text-red text-primary ">
-              <Link className="hover:bg-link-highlight rounded-md box-content" href={`/term/${term_of_the_day}`}>
+              <Link className="hover:underline decoration-2  rounded-md box-content" href={`/term/${term_of_the_day}`}>
                 {term_of_the_day}
               </Link>
             </h2>
             <p className="capitalize italic ">{term_obj.type}</p>
-            <p className="pt-2">{term_obj.general.definition}</p>
+            <p className="pt-2 max-w-[40ch]">{term_obj.general.definition}</p>
           </div>
         </article>
-        <article>
+        <article className="min-w-max">
           <h1 className="text-2xl font-bold text-primary mb-2">
             Discover &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
           </h1>
-          <div className="border-2 border-black rounded-lg p-3">
+          <div className="border-3 border-primary rounded-lg p-3 bg-secondary">
             <ul>
               {termsPlaceholder.map((term) => (
-                <li key={term}>
-                  <Link className="hover:bg-link-highlight py-1 rounded-sm" href={`/term/${term}`}>
+                <li className="m-1 my-2 first:my-0 last:my-0" key={term}>
+                  <Link
+                    className="capitalize text-primary font-bold hover:underline decoration-2   rounded-sm"
+                    href={`/term/${term}`}
+                  >
                     {term}
                   </Link>
                 </li>
