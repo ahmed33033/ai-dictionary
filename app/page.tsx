@@ -30,12 +30,12 @@ export default function Home() {
         <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-lg border-primary border-3">
           <div className="inline-block max-md:mbe-3 md:grow-1">
             <div className="inline-block text-center">
-              <Link className="text-xl font-sans text-primary inline-block w-m" href={"/"}>
-                The Simple <br />
-                <span className="text-4xl font-bold">AI Dictionary</span>
+              <Link className="text-lg font-sans text-primary inline-block *:-m-1" href={"/"}>
+                <p>The Simple</p>
+                <p className="text-3xl font-bold">AI Dictionary</p>
               </Link>
               <br />
-              <div className="italic inline-block">Defining the AI buzzwords, simply.</div>
+              <div className="italic inline-block">Simple, Public and Simple</div>
             </div>
           </div>
           <nav className="inline">
@@ -74,7 +74,7 @@ export default function Home() {
           )}
         </div>
       </Command>
-      <main className="flex gap-12 justify-center mbs-4">
+      <main className="flex flex-col sm:flex-row gap-12 justify-center mbs-4">
         <article>
           <h1 className="px-8 text-2xl font-bold text-primary mb-2 text-center">
             Today's &nbsp;
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
         </article>
         <article>
-          <h1 className="px-8 text-2xl font-bold text-primary mb-2">
+          <h1 className="text-center px-8 text-2xl font-bold text-primary mb-2">
             Discover &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
           </h1>
@@ -111,6 +111,7 @@ export default function Home() {
           </div>
         </article>
       </main>
+      <p className="after:animate-glitch"></p>
     </>
   );
 }
