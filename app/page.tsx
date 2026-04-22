@@ -21,6 +21,7 @@ import { term_of_the_day } from "@/lib/term-of-the-day";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [animation, setAnimation] = useState("");
   const router = useRouter();
   const term_obj = terms.filter((term) => term.name === term_of_the_day)[0];
 
@@ -28,7 +29,7 @@ export default function Home() {
     <>
       <header>
         <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-lg border-primary border-3">
-          <div className="inline-block max-md:mbe-3 md:grow-1">
+          <div className="inline-block max-md:mbe-3 md:grow">
             <div className="inline-block text-center">
               <Link className="text-lg font-sans text-primary inline-block *:-m-1" href={"/"}>
                 <p>The Simple</p>
@@ -39,7 +40,7 @@ export default function Home() {
             </div>
           </div>
           <nav className="inline">
-            <ol className="*:inline *:not-last:mr-10 text-primary font-bold text-lg font-sans *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
+            <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
               <li>
                 <Link href={"/about"}>About</Link>
               </li>
@@ -98,11 +99,12 @@ export default function Home() {
           <div className="border-3 border-primary rounded-lg p-3 bg-secondary">
             <ul>
               {termsPlaceholder.map((term) => (
-                <li className="m-1 my-2 first:my-0 last:my-0" key={term}>
-                  <Link
-                    className="capitalize text-primary font-bold hover:underline decoration-2   rounded-sm"
-                    href={`/term/${term}`}
-                  >
+                <li
+                  suppressHydrationWarning
+                  className={`m-1 my-2 first:my-0 last:my-0 indent-${Math.round(Math.random() * 40)}`}
+                  key={term}
+                >
+                  <Link className="capitalize text-primary  hover:underline decoration-2 " href={`/term/${term}`}>
                     {term}
                   </Link>
                 </li>
@@ -111,7 +113,8 @@ export default function Home() {
           </div>
         </article>
       </main>
-      <p className="after:animate-glitch"></p>
+      <p className={` ${animation}`}></p>
+      <button onClick={() => setAnimation("after:animate-glitch")}>was good button</button>
     </>
   );
 }
