@@ -36,7 +36,7 @@ export default function Home() {
                 <p className="text-3xl font-bold">AI Dictionary</p>
               </Link>
               <br />
-              <div className="italic inline-block">Simple, Public and Simple</div>
+              <div className="italic text-sm inline-block">Simple, Public and Simple</div>
             </div>
           </div>
           <nav className="inline">
@@ -75,7 +75,7 @@ export default function Home() {
           )}
         </div>
       </Command>
-      <main className="flex flex-col sm:flex-row gap-12 justify-center mbs-4">
+      <main className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mbs-4">
         <article>
           <h1 className="px-8 text-2xl font-bold text-primary mb-2 text-center">
             Today's &nbsp;
@@ -91,19 +91,15 @@ export default function Home() {
             <p className="pt-2 max-w-[40ch]">{term_obj.general.definition}</p>
           </div>
         </article>
-        <article>
-          <h1 className="text-center px-8 text-2xl font-bold text-primary mb-2">
+        <article className="min-w-fit flex items-center flex-col">
+          <h1 className="text-center px-4 text-2xl font-bold text-primary mb-2">
             Discover &nbsp;
             <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
           </h1>
-          <div className="border-3 border-primary rounded-lg p-3 bg-secondary">
-            <ul>
-              {termsPlaceholder.map((term) => (
-                <li
-                  suppressHydrationWarning
-                  className={`m-1 my-2 first:my-0 last:my-0 indent-${Math.round(Math.random() * 40)}`}
-                  key={term}
-                >
+          <div className="border-3 border-primary rounded-lg p-3 bg-secondary max-w-fit grow">
+            <ul className="grid grid-cols-2 grid-flow-row p-1 px-2 gap-2 gap-x-8">
+              {termsPlaceholder.slice(0, 8).map((term) => (
+                <li className="text-center" key={term}>
                   <Link className="capitalize text-primary  hover:underline decoration-2 " href={`/term/${term}`}>
                     {term}
                   </Link>

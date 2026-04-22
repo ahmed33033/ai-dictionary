@@ -1,4 +1,14 @@
-export const termsPlaceholder: Array<string> = ["agent", "skill", "fine-tuning", "RAG", "harness", "MCP", "agent.md"];
+export const termsPlaceholder: Array<string> = [
+  "agent",
+  "skill",
+  "fine-tuning",
+  "RAG",
+  "harness",
+  "MCP",
+  "agent.md",
+  "vibe-coding",
+  "hallucination",
+];
 
 interface example {
   situation: string;
