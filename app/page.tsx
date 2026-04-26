@@ -36,7 +36,7 @@ export default function Home() {
                 <p className="text-3xl font-bold">AI Dictionary</p>
               </Link>
               <br />
-              <div className="italic text-sm inline-block">Simple, Public and Simple</div>
+              <div className="italic text-sm inline-block">Community-driven Software</div>
             </div>
           </div>
           <nav className="inline">
@@ -58,13 +58,13 @@ export default function Home() {
           value={searchTerm}
           onValueChange={(search) => setSearchTerm(search)}
         />
-        <div className="relative z-1">
+        <div className="relative z-1 flex justify-center">
           {searchTerm.length > 0 && (
-            <CommandList className="absolute w-full *:*:border-2 *:*:not-last:border-be mbs-1  drop-shadow-2xl/50 drop-shadow-primary">
-              <CommandEmpty className="rounded-full  bg-white p-2 ps-4 border-primary">No results found.</CommandEmpty>
+            <CommandList className="absolute w-[95%]  border-3 border-primary  drop-shadow-2xl/50 drop-shadow-primary">
+              <CommandEmpty className="bg-white p-2 ps-4 ">No results found.</CommandEmpty>
               {termsPlaceholder.map((term) => (
                 <CommandItem
-                  className=" text-primary border-primary bg-white"
+                  className=" text-primary bg-white border-be-2 border-1"
                   onSelect={(value) => router.push(`/term/${term}`)}
                   key={term}
                 >
@@ -79,7 +79,7 @@ export default function Home() {
         <article>
           <h1 className="px-8 text-2xl font-bold text-primary mb-2 text-center">
             Today's &nbsp;
-            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzword</span>
+            <span>Buzzword</span>
           </h1>
           <div className="border-3 border-primary rounded-lg p-4 pt-3 bg-secondary">
             <h2 className="w-max capitalize text-xl font-bold text-red text-primary ">
@@ -94,11 +94,11 @@ export default function Home() {
         <article className="min-w-fit flex items-center flex-col">
           <h1 className="text-center px-4 text-2xl font-bold text-primary mb-2">
             Discover &nbsp;
-            <span className="bg-linear-to-r from-pink-400 to-indigo-600 bg-clip-text text-transparent">Buzzwords</span>
+            <span>Buzzwords</span>
           </h1>
-          <div className="border-3 border-primary rounded-lg p-3 bg-secondary max-w-fit grow">
-            <ul className="grid grid-cols-2 grid-flow-row p-1 px-2 gap-2 gap-x-8">
-              {termsPlaceholder.slice(0, 8).map((term) => (
+          <div className="border-3 border-primary rounded-lg p-3 bg-secondary px-5 basis-36 grow overflow-scroll">
+            <ul className="grid grid-cols-2 grid-flow-row p-1 px-2 gap-2 gap-x-8 ">
+              {termsPlaceholder.slice(0, 12).map((term) => (
                 <li className="text-center" key={term}>
                   <Link className="capitalize text-primary  hover:underline decoration-2 " href={`/term/${term}`}>
                     {term}
