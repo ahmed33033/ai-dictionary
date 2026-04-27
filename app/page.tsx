@@ -82,7 +82,7 @@ export default function Home() {
             <span>Buzzword</span>
           </h1>
           <div className="border-3 border-primary rounded-lg p-4 pt-3 bg-secondary">
-            <h2 className="w-max capitalize text-xl font-bold text-red text-primary ">
+            <h2 className="w-max capitalize text-xl font-bold text-primary ">
               <Link className="hover:underline decoration-2  rounded-md box-content" href={`/term/${term_of_the_day}`}>
                 {term_of_the_day}
               </Link>
@@ -96,8 +96,8 @@ export default function Home() {
             Discover &nbsp;
             <span>Buzzwords</span>
           </h1>
-          <div className="border-3 border-primary rounded-lg p-3 bg-secondary px-5 basis-36 grow overflow-scroll">
-            <ul className="grid grid-cols-2 grid-flow-row p-1 px-2 gap-2 gap-x-8 ">
+          <div className="border-3 border-primary rounded-lg p-2 bg-secondary px-5 basis-36 grow overflow-scroll">
+            <ul className="grid grid-cols-2 grid-flow-row px-2 gap-2 gap-x-8 ">
               {termsPlaceholder.slice(0, 12).map((term) => (
                 <li className="text-center" key={term}>
                   <Link className="capitalize text-primary  hover:underline decoration-2 " href={`/term/${term}`}>
@@ -109,8 +109,6 @@ export default function Home() {
           </div>
         </article>
       </main>
-      <p className={` ${animation}`}></p>
-      <button onClick={() => setAnimation("after:animate-glitch")}>was good button</button>
     </>
   );
 }
