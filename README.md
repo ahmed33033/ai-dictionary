@@ -90,19 +90,6 @@ Examples:
 - 8G Mobile uses an agent in the form of a customer serivce chatbot. When a user asks about their bill, the chatbot retrieves their records to tell them how much they owe.
 - Chef Gordon Townsy is selling an agent in the form of a smart menu creator. It asks for the user's favorite dishes to design a 3-course meal that matches their palletes!
 
-##### Original Definition
-
-"... a system that autonomously performs tasks by designing workflows with available tools." (IBM, 2024).
-
-##### Software Data
-
-Attaching context data and tools (programming functions) to LLM calls.
-
-Examples:
-
-- You can create an agent by attaching a 'GetWeather' tool to LLM calls. When a user asks about the weather, the LLM will call your 'GetWeather' tool to provide the user with the requested weather conditions.
-- ChatGPT is an agent because when it's asked a techincal question, it might search the web to generate an accurate response.
-
 ```mermaid
 ---
 config:
@@ -115,10 +102,20 @@ config:
 flowchart
     model@{shape: rounded, label: "AI Model"}
     data@{shape: rounded, label: "Data"}
-        subgraph Agent[**Agent**]
-        direction LR
         model --> |request|data
         data --> |receive|model
-        end
-    Agent --> Goal@{shape: rounded, label: "Response"}
+    model --> Goal@{shape: rounded, label: "Response"}
 ```
+
+##### Original Definition
+
+"... a system that autonomously performs tasks by designing workflows with available tools." (IBM, 2024).
+
+##### Software Data
+
+Attaching context data and tools (programming functions) to LLM calls.
+
+Examples:
+
+- You can create an agent by attaching a 'GetWeather' tool to LLM calls. When a user asks about the weather, the LLM will call your 'GetWeather' tool to provide the user with the requested weather conditions.
+- ChatGPT is an agent because when it's asked a techincal question, it might search the web to generate an accurate response.
