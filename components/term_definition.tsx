@@ -1,44 +1,23 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { terms } from "@/lib/terms";
+import { getTermObj, terms } from "@/lib/terms";
+import { SimpleCard } from "@/components/simple_card";
 
 export function TermDefinition({ term }: { term: string }) {
-  const retreived_term = terms.filter((i) => i.name === term)[0];
-  if (retreived_term == undefined) {
+  const retrieved_term = getTermObj(term);
+  if (retrieved_term == undefined) {
     return <p>undefined term whoops</p>;
   }
 
   return (
-    <Tabs defaultValue="overview" className="w-100">
+    <Tabs defaultValue="overview">
       <TabsList>
-        <TabsTrigger value="general">Concrete</TabsTrigger>
+        <TabsTrigger value="simple">Concrete</TabsTrigger>
         <TabsTrigger value="original">Original</TabsTrigger>
         <TabsTrigger value="software">Software</TabsTrigger>
       </TabsList>
-      <TabsContent value="general">
-        <Card>
-          <CardHeader>
-            <CardTitle className="capitalize">{term}</CardTitle>
-            <CardDescription className="capitalize">Type: {retreived_term.type}</CardDescription>
-
-            <CardDescription className="capitalize">
-              Related Terms: {retreived_term.related_terms.join(", ")}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            {retreived_term.general.definition}
-
-            <ul>
-              {retreived_term.general.examples.map((example) => (
-                <li key={example}>{example}</li>
-              ))}
-            </ul>
-          </CardContent>
-
-          <CardFooter>
-            <pre className="mermaid">{retreived_term.general_diagram}</pre>
-          </CardFooter>
-        </Card>
+      <TabsContent value="simple">
+        <SimpleCard term={term} />
       </TabsContent>
       <TabsContent value="original">
         <Card>
