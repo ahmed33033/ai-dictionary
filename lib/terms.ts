@@ -24,10 +24,10 @@ interface term {
   name: string;
   type: string;
   related_terms: Array<string>;
-  general: fieldDefinition;
+  simple: fieldDefinition;
   original: originalDefinition;
   software: fieldDefinition;
-  general_diagram: string;
+  simple_diagram: string;
 }
 
 /*
@@ -42,7 +42,7 @@ const agent: term = {
   name: "agent",
   type: "architecture",
   related_terms: ["agents", "agentic"],
-  general: {
+  simple: {
     definition: "An AI-model that uses additional, external data to generate a response.",
     examples: [
       "8G Mobile uses an agent in the form of a customer serivce chatbot. When a user asks about their bill, the chatbot retrieves their records to tell them how much they owe.",
@@ -61,7 +61,7 @@ const agent: term = {
       "ChatGPT is an agent because when it's asked a techincal question, it might search the web to generate an accurate response.",
     ],
   },
-  general_diagram: `
+  simple_diagram: `
   flowchart
       model@{shape: rounded, label: "AI Model"}
       data@{shape: rounded, label: "Data"}
@@ -72,3 +72,6 @@ const agent: term = {
 };
 
 export const terms: Array<term> = [agent];
+export function getTermObj(selected_term: string) {
+  return terms.filter((term) => term.name === selected_term)[0];
+}
