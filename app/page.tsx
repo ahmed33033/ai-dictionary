@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { termsPlaceholder, terms, getTermObj } from "@/lib/terms";
+import { termsPlaceholder } from "@/lib/terms";
 import { term_of_the_day } from "@/lib/term-of-the-day";
 import { SimpleCard } from "@/components/simple_card";
 import { Card } from "@/components/ui/card";
@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mbs-4">
+      <main className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center ">
         <article className="grow">
           <h1 className="px-8 text-2xl text-primary mb-2 text-center">
             Today's &nbsp;
