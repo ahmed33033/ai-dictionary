@@ -1,5 +1,7 @@
 ![The Simple AI Dictionary Homepage](/public/readme/homepage-03-05-26.png)
 
+A simple dictionary that defines the AI buzzwords that've been buzzing you crazy!
+
 ## Why the Dictionary?
 
 GenAI is a liminal space. It's changing rapidly. As a result, new terms are being added continiously.
