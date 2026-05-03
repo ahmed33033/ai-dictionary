@@ -40,19 +40,10 @@ A dictionary that simply and concretely defines AI terms. To do so, the dictiona
 
 3. A simple, concrete definition that defines terms as they're commonly used. To do so, the dictionary will provide users with different definitions depending on their background.
    - First, there will be a general defintion that should be understood by the average Joe Shmoe. Joe Shmoe is a middle-aged chef, knows a few things about AI and where it's used. He uses ChatGPT from time to time, but he won't know about specific technologies like 'agents' or apps like Notebook LM.
-   <figure align="center">
-      <img src="public/readme/chef.png" alt="cartoon of software developer" width="100" />
-      <figcaption> Joe Shmoe, a chef</figcaption>
-   </figure>
 
    - Furthermore, there should also be an 'original' definition, as in a definition that is similar to how the term is popularly defined. In the [aforementioned example](#example-of-the-problem), that would be the IBM definition. The 'original' definition should preferably be quoted, with a corresponding source. This 'original' definition will help provide users with context on how the term is commonly defined and understood. This will help ensure they're not isolated or misunderstood when engaging in conversations relating to the term.
 
    - There should also be a software definition that should be understood by the average Alex Dev. Alex is a middle-aged full-stack developer who makes websites for an agency. She extensively uses Claude Code, and she's heard of terms like 'agents' and 'MCP'. But, she doesn't really know how they work or how they fit into her development tasks.
-
-<figure align="center">
-   <img src="public/readme/developer.png" alt="cartoon of software developer" width="100" />
-   <figcaption> Alex Dev, a fullstack developer</figcaption>
-</figure>
 
 4. The dictionary should also have an example. That's one or two lines that help explain what the term refers to.
 
@@ -90,3 +81,7 @@ flowchart
 Attaching context data and tools (programming functions) to LLM calls.
 
 > You can create an agent by attaching a 'GetWeather' tool to LLM calls. When a user asks about the weather, the LLM will call your 'GetWeather' tool to provide the user with the requested weather conditions.
+
+## Contributions
+
+This project is open to contributions! A `CONTRIBUTING.md` is planned to be added soon to detail how you can easily contribute to this project.
