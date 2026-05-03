@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getTermObj, terms } from "@/lib/terms";
-import { SimpleCard } from "@/components/simple_card";
+import { SimpleCard } from "@/components/definition_card/simple_card";
 
 export function TermDefinition({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);

@@ -1,10 +1,10 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { getTermObj } from "@/lib/terms";
-import { Example } from "@/components/example";
-import { DiagramImage } from "@/components/diagram_image";
-import { BaseDefinitionCard } from "@/components/base_definition_card";
+import { Example } from "@/components/definition_card/base/example";
+import { DiagramImage } from "@/components/definition_card/base/diagram_image";
+import { BaseDefinitionCard } from "@/components/definition_card/base/base_definition_card";
 
-export function SimpleCard({ term }: { term: string }) {
+export function OriginalCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   return (
     <BaseDefinitionCard>
