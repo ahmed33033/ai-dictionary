@@ -28,7 +28,7 @@ export function MainSearch() {
       >
         <ComboboxInput
           ref={inputRef}
-          placeholder="Select a framework"
+          placeholder="Search the buzz..."
           showTrigger={false}
           showClear
           className="bg-white"
