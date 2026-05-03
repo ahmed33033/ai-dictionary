@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Navbar() {
   return (
     <header className="w-full">
-      <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-4xl border-border border-1 shadow-xl">
+      <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-4xl border-border border-1 shadow-md">
         <div className="inline-block max-md:mbe-3 md:grow">
           <div className="inline-block text-center">
             <Link className="text-lg font-sans text-primary inline-block *:-m-1" href={"/"}>
