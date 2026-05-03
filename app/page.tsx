@@ -31,9 +31,6 @@ export default function Home() {
           </Card>
         </article>
       </main>
-      <footer>
-        <p>whats good gang</p>
-      </footer>
     </>
   );
 }
