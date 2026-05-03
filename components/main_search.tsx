@@ -1,36 +1,57 @@
 "use client";
-import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { termsPlaceholder } from "@/lib/terms";
+import {
+  Combobox,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxList,
+} from "@/components/ui/combobox";
+import { useRef } from "react";
 
 export function MainSearch() {
-  const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
-
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputValue, setInputValue] = useState<string | undefined>("");
   return (
-    <Command className="my-4 border-1 border-border shadow-md shadow-border" label="Dictionary Search Bar">
-      <CommandInput
-        placeholder="Search through the AI buzz..."
-        value={searchTerm}
-        onValueChange={(search) => setSearchTerm(search)}
-      />
-      <div className="relative z-1 flex justify-center">
-        {searchTerm.length > 0 && (
-          <CommandList className="absolute w-[95%]  border-1 border-border  drop-shadow-2xl drop-shadow-primary/50 mbs-0.5">
-            <CommandEmpty className="bg-white p-2 ps-4 ">No results found.</CommandEmpty>
-            {termsPlaceholder.map((term) => (
-              <CommandItem
-                className=" text-primary bg-white border-be-2 border-1"
-                onSelect={(value) => router.push(`/term/${term}`)}
-                key={term}
+    <div className="my-4 mbe-6 border-1 border-border rounded-full">
+      <Combobox
+        items={termsPlaceholder}
+        autoHighlight
+        openOnInputClick={false}
+        limit={5}
+        inputValue={inputValue}
+        onInputValueChange={(inputValue, e) => setInputValue(inputValue)}
+      >
+        <ComboboxInput
+          ref={inputRef}
+          placeholder="Select a framework"
+          showTrigger={false}
+          showClear
+          className="bg-white"
+        />
+        <ComboboxContent>
+          <ComboboxEmpty>No items found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem
+                key={item}
+                value={item}
+                onClick={(e) => {
+                  router.push(`/term/${item}`);
+                  inputRef.current?.blur();
+                }}
+                className="cursor-pointer"
               >
-                {term}
-              </CommandItem>
-            ))}
-          </CommandList>
-        )}
-      </div>
-    </Command>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   );
 }
