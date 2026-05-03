@@ -12,12 +12,19 @@ export const termsPlaceholder: Array<string> = [
 
 interface fieldDefinition {
   definition: string;
-  examples: Array<string>;
+  example: string;
 }
 
 interface originalDefinition {
   definition: string;
   source: string;
+}
+
+export interface diagram {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
 interface term {
@@ -27,7 +34,8 @@ interface term {
   simple: fieldDefinition;
   original: originalDefinition;
   software: fieldDefinition;
-  simple_diagram: string;
+  simple_diagram?: diagram;
+  software_diagram?: diagram;
 }
 
 /*
@@ -44,10 +52,8 @@ const agent: term = {
   related_terms: ["agents", "agentic"],
   simple: {
     definition: "An AI-model that uses additional, external data to generate a response.",
-    examples: [
+    example:
       "8G Mobile uses an agent in the form of a customer serivce chatbot. When a user asks about their bill, the chatbot retrieves their records to tell them how much they owe.",
-      "Chef Gordon Townsy is selling an agent in the form of a smart menu creator. It asks for the user's favorite dishes to design a 3-course meal that matches their palletes!",
-    ],
   },
   original: {
     definition: "... a system that autonomously performs tasks by designing workflows with available tools.",
@@ -56,19 +62,15 @@ const agent: term = {
   software: {
     definition:
       "The process of giving an LLM functions or tools it can call to retreive data, so it can use that data to generate a response.",
-    examples: [
+    example:
       "You can create an agent by attaching a 'GetWeather' tool to LLM calls. When a user asks about the weather, the LLM will call your 'GetWeather' tool to provide the user with the requested weather conditions.",
-      "ChatGPT is an agent because when it's asked a techincal question, it might search the web to generate an accurate response.",
-    ],
   },
-  simple_diagram: `
-  flowchart
-      model@{shape: rounded, label: "AI Model"}
-      data@{shape: rounded, label: "Data"}
-          model --> |request|data
-          data --> |receive|model
-      model --> Goal@{shape: rounded, label: "Response"}
-`,
+  simple_diagram: {
+    src: "/mermaid_diagrams/agent_simple.svg",
+    alt: "Simple drawing of agent requesting and receiving data, before responding to user.",
+    width: 300,
+    height: 300,
+  },
 };
 
 export const terms: Array<term> = [agent];

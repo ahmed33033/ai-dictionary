@@ -12,7 +12,7 @@ export function TermDefinition({ term }: { term: string }) {
   return (
     <Tabs defaultValue="overview">
       <TabsList>
-        <TabsTrigger value="simple">Concrete</TabsTrigger>
+        <TabsTrigger value="simple">Simple</TabsTrigger>
         <TabsTrigger value="original">Original</TabsTrigger>
         <TabsTrigger value="software">Software</TabsTrigger>
       </TabsList>
