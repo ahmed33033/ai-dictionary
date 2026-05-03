@@ -6,16 +6,16 @@ export function Navbar() {
       <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-4xl border-border border-1 shadow-md">
         <div className="inline-block max-md:mbe-3 md:grow">
           <div className="inline-block text-center">
-            <Link className="text-lg font-sans text-primary inline-block *:-m-1" href={"/"}>
+            <Link className="text-lg font-playfair-display text-primary inline-block *:-m-1" href={"/"}>
               <p>The Simple</p>
-              <p className="text-3xl font-bold">AI Dictionary</p>
+              <p className="text-3xl font-bold tracking-wide">AI Dictionary</p>
             </Link>
             <br />
-            <div className="italic text-sm inline-block">Community-driven Software</div>
+            <div className="text-sm inline-block font-playfair-display">Community-driven Software</div>
           </div>
         </div>
         <nav className="inline">
-          <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-sans *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
+          <ol className="*:inline *:not-last:mr-10 text-primary text-lg font-playfair-display *:hover:underline *:decoration-2 *:p-2 *:rounded-md">
             <li>
               <Link href={"/about"}>About</Link>
             </li>
