@@ -10,16 +10,13 @@ export const termsPlaceholder: Array<string> = [
   "hallucination",
 ];
 
-interface fieldDefinition {
+export interface fieldDefinition {
   type: string;
   definition: string;
   example: string;
 }
 
-interface originalDefinition {
-  type: string;
-  definition: string;
-  example: string;
+interface originalDefinition extends fieldDefinition {
   source: string;
 }
 
@@ -30,13 +27,14 @@ export interface diagram {
   height: number;
 }
 
-interface term {
+export interface term {
   name: string;
   related_terms: Array<string>;
   simple: fieldDefinition;
   original: originalDefinition;
   software: fieldDefinition;
   simple_diagram?: diagram;
+  original_diagram?: diagram;
   software_diagram?: diagram;
 }
 

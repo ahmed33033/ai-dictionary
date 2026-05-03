@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function HeaderDefault() {
+export function Navbar() {
   return (
     <header className="w-full">
       <div className="md:flex text-center md:text-left items-center bg-secondary py-5 px-10 rounded-4xl border-border border-1 shadow-xl">

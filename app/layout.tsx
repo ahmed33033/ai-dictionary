@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { HeaderDefault } from "@/components/header_default";
-import { MainSearch } from "@/components/main_search";
+import { Navbar } from "@/components/navbar";
+import { MainSearch } from "@/components/search_main";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <HeaderDefault />
+        <Navbar />
         <MainSearch />
         {children}
       </body>
