@@ -1,12 +1,13 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { getTermObj } from "@/lib/terms";
 import { Example } from "@/components/example";
-import { DiagramImage } from "./diagram_image";
+import { DiagramImage } from "@/components/diagram_image";
+import { BaseDefinitionCard } from "@/components/base_definition_card";
 
 export function SimpleCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   return (
-    <Card className="@container max-w-2xl gap-3">
+    <BaseDefinitionCard>
       <CardHeader>
         <div className="flex">
           <CardTitle className="capitalize">
@@ -23,6 +24,6 @@ export function SimpleCard({ term }: { term: string }) {
         </div>
         {retrieved_term.simple_diagram !== undefined && <DiagramImage diagram={retrieved_term.simple_diagram} />}
       </CardContent>
-    </Card>
+    </BaseDefinitionCard>
   );
 }

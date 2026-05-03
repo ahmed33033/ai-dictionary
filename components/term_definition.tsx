@@ -10,7 +10,7 @@ export function TermDefinition({ term }: { term: string }) {
   }
 
   return (
-    <Tabs defaultValue="overview" className={"max-w-2xl"}>
+    <Tabs defaultValue="overview">
       <TabsList>
         <TabsTrigger value="simple">Simple</TabsTrigger>
         <TabsTrigger value="original">Original</TabsTrigger>
