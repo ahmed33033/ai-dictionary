@@ -20,7 +20,6 @@ export function DefinitionContent({
         <p className="text-black">{definition}</p>
         <Example example={example} />
       </div>
-      {diagram !== undefined && <DiagramImage diagram={diagram} />}
     </CardContent>
   );
 }

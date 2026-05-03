@@ -6,7 +6,7 @@ import { DefinitionContent } from "./base/definition_content";
 export function SimpleCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   return (
-    <BaseDefinitionCard>
+    <BaseDefinitionCard diagram={retrieved_term.simple_diagram}>
       <DefintionHeader
         name={retrieved_term.name}
         type={retrieved_term.simple.type}

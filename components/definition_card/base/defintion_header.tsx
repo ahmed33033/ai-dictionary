@@ -11,7 +11,7 @@ export function DefintionHeader({
   related_terms: term["related_terms"];
 }) {
   return (
-    <CardHeader>
+    <CardHeader className="mbe-6 gap-0">
       <div className="flex">
         <CardTitle className="capitalize">
           {name} <span className="ms-1 text-muted-foreground font-normal">- {type}</span>
