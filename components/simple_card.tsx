@@ -1,5 +1,4 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
-import Image from "next/image";
 import { getTermObj } from "@/lib/terms";
 import { Example } from "@/components/example";
 import { DiagramImage } from "./diagram_image";
@@ -7,7 +6,7 @@ import { DiagramImage } from "./diagram_image";
 export function SimpleCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   return (
-    <Card className="">
+    <Card className="@container max-w-2xl gap-3">
       <CardHeader>
         <div className="flex">
           <CardTitle className="capitalize">
@@ -17,7 +16,7 @@ export function SimpleCard({ term }: { term: string }) {
         </div>
         <CardDescription className="capitalize">Related: {retrieved_term.related_terms.join(", ")}</CardDescription>
       </CardHeader>
-      <CardContent className="text-sm text-muted-foreground flex gap-5 flex-col items-center">
+      <CardContent className="text-sm text-muted-foreground flex gap-5 flex-col items-center @lg:flex-row">
         <div>
           <p className="text-black">{retrieved_term.simple.definition}</p>
           <Example example={retrieved_term.simple.example} />
