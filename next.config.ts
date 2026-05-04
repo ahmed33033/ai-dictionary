@@ -4,7 +4,12 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   /* config options here */
   // Configure `pageExtensions` to include markdown and MDX files
+  output: "export",
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  basePath: "/ai-dictionary",
+  images: {
+    unoptimized: true,
+  },
 };
 
 const withMDX = createMDX({
