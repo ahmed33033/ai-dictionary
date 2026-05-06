@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
-import { MainSearch } from "@/components/search_main";
+import { MainSearch } from "@/components/MainSearch";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
