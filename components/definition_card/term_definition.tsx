@@ -1,6 +1,5 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getTermObj, terms } from "@/lib/terms";
+import { getTermObj } from "@/lib/terms";
 import { SimpleCard } from "@/components/definition_card/simple_card";
 import { OriginalCard } from "./original_card";
 import { SoftwareCard } from "./software_card";
