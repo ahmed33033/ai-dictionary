@@ -3,7 +3,6 @@
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
-@plugin "@tailwindcss/typography";
 
 @theme inline {
   --color-background: var(--background);
