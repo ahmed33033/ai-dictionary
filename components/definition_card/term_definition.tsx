@@ -12,7 +12,7 @@ export function TermDefinition({ term }: { term: string }) {
   }
 
   return (
-    <Tabs defaultValue="overview">
+    <Tabs defaultValue="overview" className="mt-8">
       <TabsList>
         <TabsTrigger value="simple">Simple</TabsTrigger>
         <TabsTrigger value="original">Original</TabsTrigger>

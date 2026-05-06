@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 export default function Home() {
   return (
     <>
-      <main className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center ">
+      <main className="flex flex-col md:flex-row gap-8 md:gap-12 justify-center mt-8">
         <article className="grow">
           <h1 className="px-8 text-2xl text-primary mb-2 text-center font-playfair-display ">
             Today's &nbsp;
