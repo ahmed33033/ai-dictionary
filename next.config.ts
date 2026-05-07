@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   pageExtensions: ["js", "jsx", "ts", "tsx"],
-  basePath: "/ai-dictionary",
+  basePath: process.env.NEXT_PUBLIC_BASEPATH,
   images: {
     unoptimized: true,
   },
