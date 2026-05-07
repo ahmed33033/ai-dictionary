@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/navbar";
 import { MainSearch } from "@/components/MainSearch";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -37,7 +38,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "h-full",
+        "min-h-svh flex flex-col p-8 items-center",
         "antialiased",
         geistSans.variable,
         geistMono.variable,
@@ -46,10 +47,11 @@ export default function RootLayout({
         playfairDisplay.variable,
       )}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="flex flex-col grow w-[80svw] max-w-4xl">
         <Navbar />
         <MainSearch />
         {children}
+        <Footer />
       </body>
     </html>
   );

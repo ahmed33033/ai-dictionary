@@ -116,6 +116,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --basepath: env(NEXT_PUBLIC_BASEPATH);
 }
 
 @layer base {
@@ -124,10 +125,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    @apply w-[80svw] max-w-4xl;
   }
   html {
     @apply font-sans;
-    @apply flex flex-col p-8 items-center;
   }
 }
