@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 export function ProseH1({ children, className, ...props }: { children: React.ReactNode } & React.ComponentProps<"h1">) {
   return (
-    <h1 className={cn([className, "text-3xl mt-8 font-playfair-display"])} {...props}>
+    <h1 className={cn([, "text-3xl mt-8 font-playfair-display", className])} {...props}>
       {children}
     </h1>
   );
@@ -10,7 +10,7 @@ export function ProseH1({ children, className, ...props }: { children: React.Rea
 
 export function ProseH2({ children, className, ...props }: { children: React.ReactNode } & React.ComponentProps<"h2">) {
   return (
-    <h2 className={cn([className, "text-2xl mt-8  font-playfair-display"])} {...props}>
+    <h2 className={cn(["text-2xl mt-8  font-playfair-display", className])} {...props}>
       {children}
     </h2>
   );
@@ -18,7 +18,7 @@ export function ProseH2({ children, className, ...props }: { children: React.Rea
 
 export function ProseH3({ children, className, ...props }: { children: React.ReactNode } & React.ComponentProps<"h3">) {
   return (
-    <h3 className={cn([className, "font-bold mt-4  font-playfair-display text-lg"])} {...props}>
+    <h3 className={cn(["font-bold mt-4  font-playfair-display text-lg", className])} {...props}>
       {children}
     </h3>
   );
