@@ -3,11 +3,16 @@ import { getTermObj } from "@/lib/terms";
 import { SimpleCard } from "@/components/definition_card/simple_card";
 import { OriginalCard } from "./original_card";
 import { SoftwareCard } from "./software_card";
+import { ProseP } from "../prose/ProseP";
 
 export function TermDefinition({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   if (retrieved_term == undefined) {
-    return <p>undefined term whoops</p>;
+    return (
+      <ProseP className="mt-6">
+        Sorry! <span className="capitalize font-bold">{term} </span>is currently undefined. Come back soon!
+      </ProseP>
+    );
   }
 
   return (
