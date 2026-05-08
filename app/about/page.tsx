@@ -6,7 +6,7 @@ export default function About() {
   return (
     <div>
       {/* Relative for optical alignment */}
-      <div className="relative right-4">
+      <div className="relative right-5">
         <ProseH1 className="text-center">Why the Dictionary?</ProseH1>
         <ProseP className="text-center">
           GenAI is a liminal space. It's changing rapidly. As a result, new terms are being added continiously.
