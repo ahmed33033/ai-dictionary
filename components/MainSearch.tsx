@@ -17,7 +17,7 @@ export function MainSearch() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState<string | undefined>("");
   return (
-    <div className="my-4 mbe-6 border-1 border-border rounded-full shadow-md">
+    <div className="mt-4 border-1 border-border rounded-full shadow-md">
       <Combobox
         items={termsPlaceholder}
         autoHighlight
