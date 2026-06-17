@@ -12,15 +12,13 @@ export function DefintionHeader({
   related_terms: term["related_terms"];
 }) {
   return (
-    <CardHeader className="mbe-6 gap-0 md:text-left md:justify-left text-center justify-center">
-      <div className="flex">
+    <CardHeader className="mbe-6 gap-0 justify-center @md:justify-start">
         <CardTitle className="capitalize">
           <Link className="hover:underline decoration-2" href={`/term/${name}`}>
             {name}
           </Link>
           <span className="ms-1 text-muted-foreground font-normal">- {type}</span>
         </CardTitle>
-      </div>
       <CardDescription className="capitalize">Related: {related_terms.join(", ")}</CardDescription>
     </CardHeader>
   );

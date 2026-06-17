@@ -8,8 +8,11 @@ export function SimpleCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
   const diagram = retrieved_term.simple_diagram;
   return (
-    <BaseDefinitionCard >
+    <BaseDefinitionCard>
+    <div className="flex flex-col @md:flex-row">
+
     <div>
+      
       <DefintionHeader
         name={retrieved_term.name}
         type={retrieved_term.simple.type}
@@ -23,6 +26,7 @@ export function SimpleCard({ term }: { term: string }) {
         </div>
         {diagram !== undefined && <DiagramImage className="self-center" diagram={diagram} />}
 
+        </div>
     </BaseDefinitionCard>
   );
 }

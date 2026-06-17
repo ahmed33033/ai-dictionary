@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <footer className="w-full mt-16 flex items-end justify-center grow">
       <div className="flex items-center gap-5">
-        <p>The Simple AI Dictionary &copy; 2026</p>
         {/* Using clsx to change url based on basepath */}
         <Link
           href={"https://github.com/ahmed33033/ai-dictionary"}
