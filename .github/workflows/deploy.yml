@@ -42,7 +42,7 @@ jobs:
             exit 0
             elif [ -f "${{ github.workspace }}/pnpm-lock.yaml" ]; then
                 echo "manager=pnpm" >> $GITHUB_OUTPUT
-                echo "command=install" >> $GITHUB_OUTPUT
+                echo "command=ci" >> $GITHUB_OUTPUT
                 echo "runner=pnpm" >> $GITHUB_OUTPUT
                 npm install -g pnpm
                 exit 0
