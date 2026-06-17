@@ -1,14 +1,11 @@
 import { Card } from "@/components/ui/card";
-import { diagram } from "@/lib/terms";
-import { DiagramImage } from "./diagram_image";
+import { cn } from "@/lib/utils";
+import { ReactNode } from "react";
 
-export function BaseDefinitionCard({ children, diagram }: { children: Readonly<React.ReactNode>; diagram?: diagram }) {
+export function BaseDefinitionCard({ children, className, ...props}: { children: Readonly<React.ReactNode>; } & React.ComponentProps<"div">) {
   return (
-    <div className="@container">
-      <Card className="max-w-2xl gap-2 flex flex-col pr-5 @xl:flex-row items-center">
-        <div>{children}</div>
-        {diagram !== undefined && <DiagramImage diagram={diagram} />}
+      <Card className={cn("@container max-w-2xl gap-0 flex flex-col pr-5 ", className)} {...props}>
+        {children}
       </Card>
-    </div>
   );
 }

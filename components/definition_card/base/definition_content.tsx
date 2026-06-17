@@ -15,11 +15,10 @@ export function DefinitionContent({
   diagram?: diagram;
 }) {
   return (
-    <CardContent className="text-sm text-muted-foreground flex gap-5 flex-col items-center @lg:items-start @lg:flex-row ">
-      <div>
+    <CardContent className="text-sm text-muted-foreground flex gap-2 flex-col text-center @md:text-left md:justify-start justify-center">
         <p className="text-black">{definition}</p>
         <Example example={example} />
-      </div>
+
     </CardContent>
   );
 }

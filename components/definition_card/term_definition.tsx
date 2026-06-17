@@ -17,11 +17,14 @@ export function TermDefinition({ term }: { term: string }) {
 
   return (
     <Tabs defaultValue="overview" className="mt-8">
+      <div className="flex md:justify-start justify-center ">
+
       <TabsList>
         <TabsTrigger value="simple">Simple</TabsTrigger>
         <TabsTrigger value="original">Original</TabsTrigger>
         <TabsTrigger value="software">Software</TabsTrigger>
       </TabsList>
+      </div>
       <TabsContent value="simple">
         <SimpleCard term={term} />
       </TabsContent>
