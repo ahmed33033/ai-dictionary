@@ -51,14 +51,14 @@ const agent: term = {
     type: "Software Pattern",
     definition: "An AI-model that uses additional, external data to generate a response.",
     example:
-      "8G Mobile uses an agent in the form of a customer serivce chatbot. When a user asks about their bill, the chatbot retrieves their records to tell them how much they owe.",
+      "An agent can tackle certain tasks with you or for you, from acting as a virtual project manager to handling more complex assignments like reconciling financial statements to close the books (Susanna Ray, Microsoft, 2024).",
   },
   software: {
-    type: "architecture",
+    type: "Pattern",
     definition:
-      "The process of giving an LLM functions or tools it can call to retreive data, so it can use that data to generate a response.",
+      "An LLM controlled with prompts, tools, flow-logic and other metadata.",
     example:
-      "You can create an agent by attaching a 'GetWeather' tool to LLM calls. When a user asks about the weather, the LLM will call your 'GetWeather' tool to provide the user with the requested weather conditions.",
+      "More specifically, agents in financial services can monitor transaction flows, assess risk factors, and handle tasks like approving routine loans or flagging suspicious activity in real time (Sydney Scott, Workday, 2025).",
   },
   simple_diagram: {
     src: "/mermaid_diagrams/agent_simple.svg",
