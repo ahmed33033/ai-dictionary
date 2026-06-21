@@ -31,10 +31,8 @@ export interface term {
   name: string;
   related_terms: Array<string>;
   simple: fieldDefinition;
-  original: originalDefinition;
   software: fieldDefinition;
   simple_diagram?: diagram;
-  original_diagram?: diagram;
   software_diagram?: diagram;
 }
 
@@ -54,13 +52,6 @@ const agent: term = {
     definition: "An AI-model that uses additional, external data to generate a response.",
     example:
       "8G Mobile uses an agent in the form of a customer serivce chatbot. When a user asks about their bill, the chatbot retrieves their records to tell them how much they owe.",
-  },
-  original: {
-    type: "system",
-    definition: '"... a system that autonomously performs tasks by designing workflows with available tools."',
-    example:
-      '"...imagine a user planning their vacation. The user tasks an AI agent with predicting which week in the next year would likely have the best weather for their surfing trip in Greece."',
-    source: "IBM, 2024",
   },
   software: {
     type: "architecture",
