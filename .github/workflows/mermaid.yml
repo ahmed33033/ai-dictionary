@@ -1,0 +1,23 @@
+name: Generate Mermaid Diagram
+on: 
+    push:
+    pull_request:
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@main
+            - name: get changed files
+              id: get_changed
+              uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
+              with:
+                files: |  
+                    **.mmd
+            - if: ${{steps.get_changed.outputs.any_changed == 'true'}}
+              env:
+                ALL_CHANGED_FILES: ${{steps.get_changed.outputs.all_changed_files}}
+              run: | 
+                for file in ${ALL_CHANGED_FILES}; do
+                    echo "$file was changed"
+                done

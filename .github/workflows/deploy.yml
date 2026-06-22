@@ -79,6 +79,21 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
+      - name: get changed files
+        id: get_changed
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
+        with:
+          files: |  
+              **.mmd
+
+      - if: ${{steps.get_changed.outputs.any_changed == 'true'}}
+        env:
+          ALL_CHANGED_FILES: ${{steps.get_changed.outputs.all_changed_files}}
+        run: | 
+          for file in ${ALL_CHANGED_FILES}; do
+              pnpm mmdc -i $file -o "$file".svg -b transparent
+          done
+
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
