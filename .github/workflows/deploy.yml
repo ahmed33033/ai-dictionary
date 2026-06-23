@@ -98,8 +98,6 @@ jobs:
           for file in ${ALL_CHANGED_FILES}; do
               aa-exec --profile=chrome pnpm mmdc -i $file -o "$file".svg -b transparent
           done
-          git config --global user.email ahmed.akod@outlook.com
-          git config --global user.name ${{github.triggering_actor}}
           git add .
           git commit -m "feat: convert mmd file to svg"
           git push
