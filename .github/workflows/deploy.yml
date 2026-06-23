@@ -92,10 +92,14 @@ jobs:
       - if: ${{steps.get_changed.outputs.any_changed == 'true'}}
         env:
           ALL_CHANGED_FILES: ${{steps.get_changed.outputs.all_changed_files}}
+          GH_TOKEN: ${{github.token}}
         run: | 
           for file in ${ALL_CHANGED_FILES}; do
               aa-exec --profile=chrome pnpm mmdc -i $file -o "$file".svg -b transparent
           done
+          git add *.mmd
+          git commit -m "feat: convert mmd file to svg"
+          git push
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
