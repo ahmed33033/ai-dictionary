@@ -28,6 +28,8 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      PUPPETEER_CACHE_DIR: ${{github.workspace}}/.cache
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -76,8 +78,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       
-
-      - run: printenv
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
