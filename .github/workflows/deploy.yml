@@ -94,7 +94,7 @@ jobs:
           ALL_CHANGED_FILES: ${{steps.get_changed.outputs.all_changed_files}}
         run: | 
           for file in ${ALL_CHANGED_FILES}; do
-              pnpm mmdc -i $file -o "$file".svg -b transparent
+              aa-exec --profile=chrome pnpm mmdc -i $file -o "$file".svg -b transparent
           done
 
       - name: Build with Next.js
