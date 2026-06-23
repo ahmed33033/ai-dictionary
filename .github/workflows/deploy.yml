@@ -61,7 +61,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: "latest"
+          node-version: "24.15"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Setup Pages
