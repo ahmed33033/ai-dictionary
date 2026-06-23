@@ -99,7 +99,7 @@ jobs:
           done
           git config --global user.email ahmed.akod@outlook.com
           git config --global user.name ${{github.triggering_actor}}
-          git add *.mmd
+          git add .
           git commit -m "feat: convert mmd file to svg"
           git push
 
