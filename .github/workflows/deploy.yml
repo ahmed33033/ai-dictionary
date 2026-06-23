@@ -100,6 +100,8 @@ jobs:
           done
 
       - uses: EndBug/add-and-commit@v10
+        with:
+          message: "feat: Convert .mmd file(s) to svg"
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
