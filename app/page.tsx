@@ -17,12 +17,17 @@ export default function Home() {
           <SimpleCard term={term_of_the_day} />
         </article>
         <article className="min-w-fit flex items-center flex-col">
-          <h1 className="text-center px-4 text-2xl text-primary mb-2 font-playfair-display">Discover</h1>
+          <h1 className="text-center px-4 text-2xl text-primary mb-2 font-playfair-display">
+            Discover
+          </h1>
           <Card className="border border-border p-4 bg-secondary px-5 basis-48 overflow-scroll">
             <ul className="list-none grid grid-cols-2 grid-flow-row px-2 gap-2 gap-x-8 ">
               {termsPlaceholder.slice(0, 12).map((term) => (
                 <li className="text-center" key={term}>
-                  <Link className="capitalize text-primary  hover:underline decoration-2 " href={`/term/${term}`}>
+                  <Link
+                    className="capitalize text-primary  hover:underline decoration-2 "
+                    href={`/term/${term}`}
+                  >
                     {term}
                   </Link>
                 </li>

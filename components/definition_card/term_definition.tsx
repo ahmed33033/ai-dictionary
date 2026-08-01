@@ -9,7 +9,8 @@ export function TermDefinition({ term }: { term: string }) {
   if (retrieved_term == undefined) {
     return (
       <ProseP className="mt-6">
-        Sorry! <span className="capitalize font-bold">{term} </span>is currently undefined. Come back soon!
+        Sorry! <span className="capitalize font-bold">{term} </span>is currently
+        undefined. Come back soon!
       </ProseP>
     );
   }
@@ -17,11 +18,10 @@ export function TermDefinition({ term }: { term: string }) {
   return (
     <Tabs defaultValue="overview" className="mt-8">
       <div className="flex md:justify-start justify-center ">
-
-      <TabsList>
-        <TabsTrigger value="simple">Simple</TabsTrigger>
-        <TabsTrigger value="software">Software</TabsTrigger>
-      </TabsList>
+        <TabsList>
+          <TabsTrigger value="simple">Simple</TabsTrigger>
+          <TabsTrigger value="software">Software</TabsTrigger>
+        </TabsList>
       </div>
       <TabsContent value="simple">
         <SimpleCard term={term} />

@@ -16,7 +16,10 @@ export default function Footer() {
               "mask-[url(/ai-dictionary/GitHub_Invertocat_Black.svg)]":
                 process.env.NEXT_PUBLIC_BASEPATH === "/ai-dictionary",
             },
-            { "mask-[url(/GitHub_Invertocat_Black.svg)]": process.env.NEXT_PUBLIC_BASEPATH == "" },
+            {
+              "mask-[url(/GitHub_Invertocat_Black.svg)]":
+                process.env.NEXT_PUBLIC_BASEPATH == "",
+            },
           )}
         >
           <Image

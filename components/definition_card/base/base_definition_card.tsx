@@ -7,7 +7,13 @@ export function BaseDefinitionCard({
   ...props
 }: { children: Readonly<React.ReactNode> } & React.ComponentProps<"div">) {
   return (
-    <Card className={cn("@container max-w-2xl gap-0 flex flex-col pr-5 ", className)} {...props}>
+    <Card
+      className={cn(
+        "@container max-w-2xl gap-0 flex flex-col pr-5 ",
+        className,
+      )}
+      {...props}
+    >
       {children}
     </Card>
   );

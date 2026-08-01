@@ -43,7 +43,8 @@ const agent: term = {
   related_terms: ["agents", "agentic"],
   simple: {
     type: "Software Pattern",
-    definition: "An AI-model that uses additional, external data to generate a response.",
+    definition:
+      "An AI-model that uses additional, external data to generate a response.",
     example:
       "An agent can tackle certain tasks with you or for you, from acting as a virtual project manager to handling more complex assignments like reconciling financial statements to close the books (Susanna Ray, Microsoft, 2024).",
   },

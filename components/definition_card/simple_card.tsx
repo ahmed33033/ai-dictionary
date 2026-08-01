@@ -16,9 +16,14 @@ export function SimpleCard({ term }: { term: string }) {
             type={retrieved_term.simple.type}
             related_terms={retrieved_term.related_terms}
           />
-          <DefinitionContent definition={retrieved_term.simple.definition} example={retrieved_term.simple.example} />
+          <DefinitionContent
+            definition={retrieved_term.simple.definition}
+            example={retrieved_term.simple.example}
+          />
         </div>
-        {diagram !== undefined && <DiagramImage className="self-center" diagram={diagram} />}
+        {diagram !== undefined && (
+          <DiagramImage className="self-center" diagram={diagram} />
+        )}
       </div>
     </BaseDefinitionCard>
   );

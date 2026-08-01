@@ -13,13 +13,15 @@ export function DefintionHeader({
 }) {
   return (
     <CardHeader className="mbe-6 gap-0 justify-center text-center @md:text-left @md:justify-start">
-        <CardTitle className="capitalize">
-          <Link className="hover:underline decoration-2" href={`/term/${name}`}>
-            {name}
-          </Link>
-          <span className="ms-1 text-muted-foreground font-normal">- {type}</span>
-        </CardTitle>
-      <CardDescription className="capitalize">Related: {related_terms.join(", ")}</CardDescription>
+      <CardTitle className="capitalize">
+        <Link className="hover:underline decoration-2" href={`/term/${name}`}>
+          {name}
+        </Link>
+        <span className="ms-1 text-muted-foreground font-normal">- {type}</span>
+      </CardTitle>
+      <CardDescription className="capitalize">
+        Related: {related_terms.join(", ")}
+      </CardDescription>
     </CardHeader>
   );
 }

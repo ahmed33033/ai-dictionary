@@ -12,7 +12,10 @@ export function SoftwareCard({ term }: { term: string }) {
         type={retrieved_term.software.type}
         related_terms={retrieved_term.related_terms}
       />
-      <DefinitionContent definition={retrieved_term.software.definition} example={retrieved_term.software.example} />
+      <DefinitionContent
+        definition={retrieved_term.software.definition}
+        example={retrieved_term.software.example}
+      />
     </BaseDefinitionCard>
   );
 }
