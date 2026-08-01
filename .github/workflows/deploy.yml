@@ -14,7 +14,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -78,6 +78,11 @@ jobs:
 
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      
+      - name: generate mmd diagrams
+        uses: "mermaid-maker/action@main"
+        with:
+          pkg_manager: pnpm
 
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build

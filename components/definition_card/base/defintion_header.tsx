@@ -12,7 +12,7 @@ export function DefintionHeader({
   related_terms: term["related_terms"];
 }) {
   return (
-    <CardHeader className="mbe-6 gap-0 justify-center @md:justify-start">
+    <CardHeader className="mbe-6 gap-0 justify-center text-center @md:text-left @md:justify-start">
         <CardTitle className="capitalize">
           <Link className="hover:underline decoration-2" href={`/term/${name}`}>
             {name}
