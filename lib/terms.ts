@@ -16,15 +16,9 @@ export interface fieldDefinition {
   example: string;
 }
 
-interface originalDefinition extends fieldDefinition {
-  source: string;
-}
-
 export interface diagram {
   src: string;
   alt: string;
-  width: number;
-  height: number;
 }
 
 export interface term {
@@ -63,8 +57,6 @@ const agent: term = {
   simple_diagram: {
     src: "/mermaid_diagrams/agent_simple.svg",
     alt: "Simple drawing of agent requesting and receiving data, before responding to user.",
-    width: 300,
-    height: 300,
   },
 };
 
