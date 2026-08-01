@@ -56,7 +56,7 @@ const agent: term = {
       "More specifically, agents in financial services can monitor transaction flows, assess risk factors, and handle tasks like approving routine loans or flagging suspicious activity in real time (Sydney Scott, Workday, 2025).",
   },
   simple_diagram: {
-    src: "/mermaid_diagrams/agent_simple.svg",
+    src: "/mermaid_diagrams/agent_simple",
     alt: "Simple drawing of agent requesting and receiving data, before responding to user.",
   },
 };
