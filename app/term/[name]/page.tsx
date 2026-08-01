@@ -1,5 +1,5 @@
 import { TermDefinition } from "@/components/definition_card/term_definition";
-import { terms, termsPlaceholder } from "@/lib/terms";
+import { termsPlaceholder } from "@/lib/terms";
 
 export function generateStaticParams() {
   return termsPlaceholder.map((term) => ({

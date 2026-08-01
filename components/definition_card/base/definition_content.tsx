@@ -1,13 +1,10 @@
 import { CardContent } from "@/components/ui/card";
 import { diagram, fieldDefinition } from "@/lib/terms";
 import { Example } from "@/components/definition_card/base/example";
-import { DiagramImage } from "./diagram_image";
 
 export function DefinitionContent({
-  children,
   definition,
   example,
-  diagram,
 }: {
   children?: Readonly<React.ReactNode>;
   definition: fieldDefinition["definition"];
@@ -16,9 +13,8 @@ export function DefinitionContent({
 }) {
   return (
     <CardContent className="text-sm text-muted-foreground flex gap-2 flex-col text-center @md:text-left md:justify-start justify-center">
-        <p className="text-black">{definition}</p>
-        <Example example={example} />
-
+      <p className="text-black">{definition}</p>
+      <Example example={example} />
     </CardContent>
   );
 }
