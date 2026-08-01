@@ -4,11 +4,20 @@ import { cn } from "@/lib/utils";
 import { MermaidClient } from "@/components/MermaidClient";
 import { readFileSync } from "fs";
 
-export function DiagramImage({ diagram, className, ...props }: { diagram: diagram } & React.ComponentProps<"img">) {
+export function DiagramImage({
+  diagram,
+  className,
+  ...props
+}: { diagram: diagram } & React.ComponentProps<"img">) {
   let diagramImage;
   if (process.env.NODE_ENV == "development") {
     diagramImage = (
-      <MermaidClient diagramSrcCode={readFileSync(process.cwd() + "/public" + diagram.src + ".mmd", "utf-8")} />
+      <MermaidClient
+        diagramSrcCode={readFileSync(
+          process.cwd() + "/public" + diagram.src + ".mmd",
+          "utf-8"
+        )}
+      />
     );
   } else if (process.env.NODE_ENV == "production") {
     diagramImage = (

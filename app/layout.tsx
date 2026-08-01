@@ -44,7 +44,7 @@ export default function RootLayout({
         geistMono.variable,
         "font-sans",
         inter.variable,
-        playfairDisplay.variable,
+        playfairDisplay.variable
       )}
     >
       <body className="flex flex-col grow w-[80svw] max-w-4xl">

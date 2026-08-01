@@ -10,7 +10,7 @@ export function BaseDefinitionCard({
     <Card
       className={cn(
         "@container max-w-2xl gap-0 flex flex-col pr-5 ",
-        className,
+        className
       )}
       {...props}
     >
