@@ -3,6 +3,7 @@ import { BaseDefinitionCard } from "@/components/definition_card/base/base_defin
 import { DefintionHeader } from "./base/defintion_header";
 import { DefinitionContent } from "./base/definition_content";
 import { DiagramImage } from "./base/diagram_image";
+import clsx from "clsx";
 
 export function SimpleCard({ term }: { term: string }) {
   const retrieved_term = getTermObj(term);
@@ -10,7 +11,7 @@ export function SimpleCard({ term }: { term: string }) {
   return (
     <BaseDefinitionCard>
       <div className="flex flex-col @md:flex-row items-center">
-        <div className="@md:w-6/10">
+        <div className={clsx({ "@md:w-6/10": diagram !== undefined })}>
           <DefintionHeader
             name={retrieved_term.name}
             type={retrieved_term.simple.type}

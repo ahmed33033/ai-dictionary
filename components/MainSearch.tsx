@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { termsPlaceholder } from "@/lib/terms";
+import { terms, termsPlaceholder } from "@/lib/terms";
 import {
   Combobox,
   ComboboxContent,
@@ -19,7 +19,7 @@ export function MainSearch() {
   return (
     <div className="mt-4 border border-border rounded-full shadow-md">
       <Combobox
-        items={termsPlaceholder}
+        items={terms.map((term) => term.name)}
         autoHighlight
         openOnInputClick={false}
         limit={5}

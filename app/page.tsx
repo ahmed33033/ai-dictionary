@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { termsPlaceholder } from "@/lib/terms";
+import { terms, termsPlaceholder } from "@/lib/terms";
 import { term_of_the_day } from "@/lib/term-of-the-day";
 import { SimpleCard } from "@/components/definition_card/simple_card";
 import { Card } from "@/components/ui/card";
@@ -21,13 +21,13 @@ export default function Home() {
           </h1>
           <Card className="border border-border p-4 bg-secondary px-5 basis-48 overflow-scroll">
             <ul className="list-none grid grid-cols-2 grid-flow-row px-2 gap-2 gap-x-8 ">
-              {termsPlaceholder.slice(0, 12).map((term) => (
-                <li className="text-center" key={term}>
+              {terms.slice(0, 12).map((term) => (
+                <li className="text-center" key={term.name}>
                   <Link
                     className="capitalize text-primary  hover:underline decoration-2 "
-                    href={`/term/${term}`}
+                    href={`/term/${term.name}`}
                   >
-                    {term}
+                    {term.name}
                   </Link>
                 </li>
               ))}
