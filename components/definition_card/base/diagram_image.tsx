@@ -25,10 +25,10 @@ export function DiagramImage({
         {...props}
         src={`${process.env.NEXT_PUBLIC_BASEPATH}${diagram.src}.svg`}
         alt={diagram.alt}
-        width="300"
-        height="300"
+        width="100"
+        height="100"
       />
     );
   }
-  return <div className={cn("*:w-60 mt-2 ", className)}>{diagramImage}</div>;
+  return <div className={cn(className, "*:w-full")}>{diagramImage}</div>;
 }
