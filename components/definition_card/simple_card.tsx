@@ -5,27 +5,40 @@ import { DefinitionContent } from "./base/definition_content";
 import { DiagramImage } from "./base/diagram_image";
 import clsx from "clsx";
 
-export function SimpleCard({ term }: { term: string }) {
+export function SimpleCard({
+  term,
+  termType,
+}: {
+  term: string;
+  termType: string;
+}) {
   const retrieved_term = getTermObj(term);
-  const diagram = retrieved_term.simple_diagram;
+  let termTypeObj = null;
+  if (termType == "simple") {
+    termTypeObj = retrieved_term.simple;
+  } else {
+    termTypeObj = retrieved_term.software;
+  }
   return (
     <BaseDefinitionCard>
       <div className="flex flex-col @md:flex-row items-center">
-        <div className={clsx({ "@md:w-6/10": diagram !== undefined })}>
+        <div
+          className={clsx({ "@md:w-6/10": termTypeObj.diagram !== undefined })}
+        >
           <DefintionHeader
             name={retrieved_term.name}
-            type={retrieved_term.simple.type}
+            type={termTypeObj.type}
             related_terms={retrieved_term.related_terms}
           />
           <DefinitionContent
-            definition={retrieved_term.simple.definition}
-            example={retrieved_term.simple.example}
+            definition={termTypeObj.definition}
+            example={termTypeObj.example}
           />
         </div>
-        {diagram !== undefined && (
+        {termTypeObj.diagram !== undefined && (
           <DiagramImage
             className="mt-5 @md:mt-0 @md:w-4/10"
-            diagram={diagram}
+            diagram={termTypeObj.diagram}
           />
         )}
       </div>
