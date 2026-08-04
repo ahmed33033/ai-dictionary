@@ -1,7 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getTermObj } from "@/lib/terms";
 import { SimpleCard } from "@/components/definition_card/simple_card";
-import { SoftwareCard } from "./software_card";
 import { ProseP } from "../prose/ProseP";
 
 export function TermDefinition({ term }: { term: string }) {
@@ -24,10 +23,10 @@ export function TermDefinition({ term }: { term: string }) {
         </TabsList>
       </div>
       <TabsContent value="simple">
-        <SimpleCard term={term} />
+        <SimpleCard term={term} termType="simple" />
       </TabsContent>
       <TabsContent value="software">
-        <SoftwareCard term={term} />
+        <SimpleCard term={term} termType="software" />
       </TabsContent>
     </Tabs>
   );

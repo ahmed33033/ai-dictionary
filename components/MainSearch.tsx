@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { termsPlaceholder } from "@/lib/terms";
+import { terms } from "@/lib/terms";
 import {
   Combobox,
   ComboboxContent,
@@ -16,10 +16,17 @@ export function MainSearch() {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputValue, setInputValue] = useState<string | undefined>("");
+  const expandedTerms = [];
+  for (const term of terms) {
+    expandedTerms.push({ name: term.name, url: term.name });
+    for (const related of term.related_terms) {
+      expandedTerms.push({ name: related, url: term.name });
+    }
+  }
   return (
     <div className="mt-4 border border-border rounded-full shadow-md">
       <Combobox
-        items={termsPlaceholder}
+        items={expandedTerms}
         autoHighlight
         openOnInputClick={false}
         limit={5}
@@ -38,15 +45,15 @@ export function MainSearch() {
           <ComboboxList>
             {(item) => (
               <ComboboxItem
-                key={item}
-                value={item}
+                key={item.name}
+                value={item.name}
                 onClick={(e) => {
-                  router.push(`/term/${item}`);
+                  router.push(`/term/${item.url}`);
                   inputRef.current?.blur();
                 }}
                 className="cursor-pointer"
               >
-                {item}
+                {item.name}
               </ComboboxItem>
             )}
           </ComboboxList>

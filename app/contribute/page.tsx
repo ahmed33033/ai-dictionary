@@ -10,7 +10,7 @@ export default function Contribute() {
         As an opensource project, the Simple AI Dictionary is always looking for
         contributors!
       </ProseP>
-      <ProseP className="text-center ">
+      <ProseP className="text-left mt-4 ">
         Whether that&apos;s contributing a new definition, critiquing an
         existing one or even suggesting some stylistic changes, all valued
         contributions are welcome through the{" "}
