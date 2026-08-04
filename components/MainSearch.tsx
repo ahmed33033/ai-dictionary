@@ -31,6 +31,7 @@ export function MainSearch() {
         openOnInputClick={false}
         limit={5}
         inputValue={inputValue}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         onInputValueChange={(inputValue, e) => setInputValue(inputValue)}
       >
         <ComboboxInput
@@ -47,6 +48,7 @@ export function MainSearch() {
               <ComboboxItem
                 key={item.name}
                 value={item.name}
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 onClick={(e) => {
                   router.push(`/term/${item.url}`);
                   inputRef.current?.blur();

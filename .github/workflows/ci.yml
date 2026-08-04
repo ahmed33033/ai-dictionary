@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  format_lint:
+    runs-on: ubuntu-latest
+    name: format and lint
+    steps:
+      - uses: "actions/checkout@v7.0.1"
+        name: checkout repo
+      - uses: "pnpm/action-setup@v6.0.10"
+        with:
+          version: 11
+          run_install: true
+          cache: true
+      - name: check format
+        run: pnpm prettier --check .
+      - name: check lint
+        run: pnpm lint
