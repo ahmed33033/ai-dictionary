@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { term, terms, termsPlaceholder } from "@/lib/terms";
+import { terms } from "@/lib/terms";
 import {
   Combobox,
   ComboboxContent,
